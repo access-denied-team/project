@@ -39,7 +39,7 @@ class App extends React.Component {
               value={this.state.name}
               onChange={this.handleChange}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Click me</button>
           </form>
           <p>{this.state.greeting}</p>
           <a
