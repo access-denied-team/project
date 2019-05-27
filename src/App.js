@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import logo from './logo.svg';
 import './App.css';
 import Accept from './components/AcceptComponent.js'
@@ -29,4 +30,21 @@ class App extends React.Component {
     }
 
   }
+=======
+import UserForm from './components/UserForm';
+import MechanicForm from './components/MechanicForm';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+      <UserForm />
+      <MechanicForm/>
+      </div>
+    );
+  }
+}
+
+
+>>>>>>> cc54ac6f43614405f3ee0b566082d0c81a4c6bce
 export default App;
