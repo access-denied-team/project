@@ -1,6 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
+import Login from './components/login';
+import SignupMain from './components/signupMain';
+
 import './App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -9,49 +13,25 @@ class App extends React.Component {
       name: '',
       greeting: ''
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
-  handleChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    fetch(`/home?name=${encodeURIComponent(this.state.name)}`)
-      .then(response => response.json())
-      .then(state => this.setState(state));
-  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="name">Enter your name: </label>
-            <input
-              id="name"
-              type="text"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Click me</button>
-          </form>
-          <p>{this.state.greeting}</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+                
+      // <div>
+      //      <Login/>
+      // </div>
+      
+       <Router>
+       
+         <Route exact path="/" component={Login} /> 
+         <Route exact path="/Login" component={Login} />
+         <Route exact path="/SignupMain" component={SignupMain} />
+       
+       
+     </Router>
+            
     );
   }
 
