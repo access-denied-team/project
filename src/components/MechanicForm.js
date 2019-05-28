@@ -58,12 +58,7 @@ class MechanicForm extends Component{
           .child(image.name)
           .getDownloadURL()
           .then(imgUrl => {
-            setTimeout(() => {
-              this.setState({ imgUrl }, () =>
-                // this.props.changeImg(this.state.imgUrl)
-                console.log(imgUrl)
-              );
-            }, 2000);
+            this.setState({imgUrl})
           });
       }
     );
