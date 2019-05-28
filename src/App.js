@@ -39,8 +39,7 @@ class App extends React.Component {
       // </div>
       
        <Router>
-       <Mapview/>
-         {/* <Route exact path="/" component={Login} />  */}
+         <Route exact path="/" component={Login} /> 
          <Route exact path="/Login" component={Login} />
          <Route exact path="/SignupMain" component={SignupMain} />
        
