@@ -41,12 +41,12 @@ class MechanicForm extends Component{
     }
     
     uploadFile(){
-                const { image } = this.state;
+        const { image } = this.state;
         console.log(image.name);
         const uploadTask = storage.ref(`images/${image.name}`).put(image);
-    uploadTask.on("state_changed",
-    snapshot => {},
-    error => {
+        uploadTask.on("state_changed",
+        snapshot => {},
+        error => {
       // error function ....
       console.log(error);
     },
@@ -60,7 +60,6 @@ class MechanicForm extends Component{
           .then(imgUrl => {
             setTimeout(() => {
               this.setState({ imgUrl }, () =>
-                // this.props.changeImg(this.state.imgUrl)
                 console.log(imgUrl)
               );
             }, 2000);
