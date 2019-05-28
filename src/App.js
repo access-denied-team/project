@@ -1,10 +1,20 @@
 import React from 'react';
-<<<<<<< HEAD
-import logo from './logo.svg';
+
+import Login from './components/login';
+import SignupMain from './components/signupMain';
+
 import './App.css';
-import Accept from './components/AcceptComponent.js'
-import Foo from './components/Rating.js'
-/////////////////////////////////
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import './App.css';
+import Map from './components/Map'
+import './App.css';
+import Accept from './components/AcceptComponent.js';
+import Foo from './components/Rating.js';
+import UserForm from './components/UserForm';
+import MechanicForm from './components/MechanicForm';
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -25,26 +35,39 @@ class App extends React.Component {
              mechinfo={this.state.mechinfo}
           />
           <Foo />
+           {/* <Map/> */}
+      <UserForm />
+      <MechanicForm/>
         </div>
         )
     }
 
-  }
-=======
-import UserForm from './components/UserForm';
-import MechanicForm from './components/MechanicForm';
 
-class App extends React.Component {
   render() {
     return (
-      <div>
-      <UserForm />
-      <MechanicForm/>
-      </div>
+                
+      // <div>
+      //      <Login/>
+      // </div>
+      
+       <Router>
+       
+         <Route exact path="/" component={Login} /> 
+         <Route exact path="/Login" component={Login} />
+         <Route exact path="/SignupMain" component={SignupMain} />
+       
+       
+     </Router>
+            
     );
   }
-}
+
+  }
 
 
->>>>>>> cc54ac6f43614405f3ee0b566082d0c81a4c6bce
+
+
+
+
+
 export default App;
