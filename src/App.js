@@ -13,6 +13,8 @@ import Accept from './components/AcceptComponent.js';
 import Foo from './components/Rating.js';
 import UserForm from './components/UserForm';
 import MechanicForm from './components/MechanicForm';
+import Rating from './components/Rating';
+
 
 
 
@@ -55,8 +57,8 @@ class App extends React.Component {
          <Route exact path="/" component={Login} /> 
          <Route exact path="/Login" component={Login} />
          <Route exact path="/SignupMain" component={SignupMain} />
-       
-       
+         <Route exact path="/rating" component={Rating} />
+         <Route exact path="/Map" component={Map} />
      </Router>
             
     );

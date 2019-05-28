@@ -15,7 +15,7 @@ class SignupMain extends React.Component {
       }
       handleSubmit(event) {
         event.preventDefault();
-       var x= this.state.choice;
+      
         alert(`You chose the ${this.state.choice} `);
       //  path="/SignupMain"
       }
@@ -52,9 +52,9 @@ class SignupMain extends React.Component {
       
              
             </ul>
-            <NavLink to="/SignupMain">
-
-            <button type="submit">Make your choice</button>
+            <NavLink to="/Rating">
+            
+            <button type="submit" >Make your choice</button>
             </NavLink>
           </form>
         );
