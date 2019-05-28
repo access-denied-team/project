@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragments} from 'react';
 import {storage} from '../firebase/index'
 
 class UserForm extends Component{
@@ -71,6 +71,14 @@ error => {
         return(
             <div>
               <h1>User:</h1>
+              <div className="form-group">
+      <label htmlFor="formGroupExampleInput">Default input</label>
+      <input
+        type="text"
+        className="form-control"
+        id="formGroupExampleInput"
+      />
+    </div>
               <img
               src={
                 this.state.imgUrl || "https://embodiedfacilitator.com/wp-content/uploads/2018/05/human-icon-png-1901.png"
