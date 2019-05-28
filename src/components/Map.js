@@ -1,7 +1,7 @@
-
+import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
-import React, { Fragment } from "react";
+import  { Fragment } from "react";
 import { MDBBtn } from "mdbreact";
 
 
