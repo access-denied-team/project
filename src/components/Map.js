@@ -32,6 +32,11 @@ export class Mapview extends React.Component{
       }
     };
 
+      sendOrder(){
+        
+      }
+
+
     render()  {
         
         return(
@@ -55,7 +60,7 @@ export class Mapview extends React.Component{
           </InfoWindow>
         </CurrentLocation>
         
-    
+          <button onClick="this.sendOrder.bind(this)">Confirm</button>
         </div>
         
         
