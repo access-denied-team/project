@@ -16,6 +16,9 @@ export class Mapview extends React.Component{
         selectedPlace:{}      //Shows the infoWindow to the selected place upon a marker
       };
     }
+    componentDidMount(){
+      console.log(this.props.location.state.user)
+    }
 
     onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -60,7 +63,7 @@ export class Mapview extends React.Component{
           </InfoWindow>
         </CurrentLocation>
         
-       <Link to="/UserForm"><Button variant="primary">{this.props.isAuthed.username}</Button></Link> 
+       <Link to="/UserForm"><Button variant="primary">Help</Button></Link> 
         
         </div>
         
