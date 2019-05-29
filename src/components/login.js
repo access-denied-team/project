@@ -99,7 +99,12 @@ class Login extends React.Component {
     }else if(this.state.logsuc ===2){
       return <Redirect to = {{
         pathname:"/Mechtasks",
-        state:{tasks:this.props.tasks}
+        state:{tasks:this.props.tasks,
+          user:{
+            username:this.state.username,
+            phonenumber:this.state.phonenumber,
+            imgUrl:this.state.imgUrl
+          }}
       }}/>
     }
   }
