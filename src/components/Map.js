@@ -63,7 +63,7 @@ export class Mapview extends React.Component{
         </CurrentLocation>
 
          
-         <button onClick={this.props.handleclick}>Help</button>
+         <button onClick={this.props.handleclick}>Request Help</button>
           
 
         </div>

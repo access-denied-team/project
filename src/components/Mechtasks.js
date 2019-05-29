@@ -54,12 +54,12 @@ class Mechtasks extends React.Component{
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {item.username} wants your help!
-			Please contact him/her soon {item.phonenumber}
+			Please contact him/her soon +{item.phonenumber}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button onClick={that.props.update} size="small" color="primary">
          Accept
         </Button>
         <Button size="small" color="primary">
