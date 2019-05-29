@@ -61,6 +61,7 @@ export class Mapview extends React.Component{
         </CurrentLocation>
         
         <Button variant="primary">Primary</Button>
+        
         </div>
         
         
