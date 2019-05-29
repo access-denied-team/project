@@ -5,7 +5,7 @@ import SignupMain from './components/signupMain';
 
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import Mechtasks from './components/Mechtasks';
 import './App.css';
 import Map from './components/Map'
 import './App.css';
@@ -20,11 +20,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mechinfo:{ 
-         userName:"oday ismail abueid",
-         phoneNum:"78090332",
-         mechImg:"https://thumbs.dreamstime.com/z/mechanical-engineer-29186038.jpg"
-      }
+      user:[
+        {
+          username:'Odayabueid',
+          password:"1111",
+          imgUrl:"",
+          phoneNum:"0780049003",
+          Role:"mechanical"
+        },
+        {
+          username:'Amer',
+          password:"1111",
+          imgUrl:"",
+          phoneNum:"0798877643",
+          Role:"user"
+        },
+        {
+          username:'Yasser',
+          password:"1111",
+          imgUrl:"",
+          phoneNum:"0797634281",
+          Role:"user"
+        },
+        {
+          username:'Shareef',
+          password:"1111",
+          imgUrl:"",
+          phoneNum:"0797634281",
+          Role:"mechanical"
+        }
+      ] 
+  
+      // mechinfo:{ 
+      //    userName:"oday ismail abueid",
+      //    phoneNum:"78090332",
+      //    mechImg:"https://thumbs.dreamstime.com/z/mechanical-engineer-29186038.jpg"
+      // }
     };
     
   }
@@ -54,6 +85,10 @@ class App extends React.Component {
        
          <Route exact path="/" component={Login} /> 
          <Route exact path="/Login" component={Login} />
+        <Route exact path="/Map" component={Map} />
+        <Route exact path="/Mechtasks" component={Mechtasks} />
+
+
          <Route exact path="/SignupMain" component={SignupMain} />
        
        
