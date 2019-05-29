@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {storage} from "../firebase/index"
 
 class UserForm extends Component{
     constructor(props){
