@@ -1,6 +1,10 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {Component} from 'react';
 import {storage} from "../firebase/index";
+
+
+
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,6 +22,7 @@ import { Redirect } from 'react-router-dom'
 
 
 class UserForm extends Component{
+
     constructor(props){
         super(props);
         this.state = {

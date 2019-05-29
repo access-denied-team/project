@@ -7,7 +7,12 @@ class Mechtasks extends React.Component{
 		this.state = {
 		}
 	}
+
+
+
+
 	render(){
+		var that = this;
 		return (
 			<div>
 				{this.props.location.state.tasks.map(function(item){
@@ -19,9 +24,14 @@ class Mechtasks extends React.Component{
 							<li>phoneNumber: {item.phonenumber}</li>
 							<li>location: {item.location}</li>
 						</ul>
+						<button onClick={that.props.update}>Accept</button>
+						<button>Decline</button>
+
 							</div>
+							
+							
 				})}	
-		
+
 			</div>
 			)
 	}

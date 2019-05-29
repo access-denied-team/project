@@ -17,6 +17,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      status:null,
+
       loginDb:[
         {
           "username":'Odayabueid',
@@ -65,6 +68,14 @@ addTask(task){
   })
 }
 
+
+update(){
+  alert('hello update')
+  this.setState({
+    status:"waiting"
+  },()=>console.log(this.state.status))
+}
+
 addUser(user){
   this.setState({
     loginDb:[...this.state.loginDb,user]
@@ -74,19 +85,24 @@ addUser(user){
     
 
 
+
   render() {
     return (
-                
-      // <div>
-      //      <Login/>
-      // </div>
-      
+      <div>
        <Router>
          
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
+
+         
+         <Route exact path="/Mechtasks" render={(props)=> <Mechtasks {...props} update={this.update.bind(this)}/>}/>
+
+        <Route exact path="/UserForm" component={UserForm} />
+
+
          <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
-        <Route exact path="/Mechtasks" component={Mechtasks} />
+        
+
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}
     />}/>
@@ -96,9 +112,9 @@ addUser(user){
   render={(props) => <Mapview {...props} addTask={this.addTask} />}
 />
      </Router>
-            
+     
+     </div>  
     );
   }
-
   }
 export default App;

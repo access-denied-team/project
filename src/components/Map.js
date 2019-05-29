@@ -45,6 +45,7 @@ export class Mapview extends React.Component{
         return(
           <div>
             
+            
           <CurrentLocation
           centerAroundCurrentLocation
           google={this.props.google}
