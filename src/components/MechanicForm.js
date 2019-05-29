@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { storage } from "../firebase/index.js";
 
-class MechanicForm extends Component{
+class Mechanicform extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -94,4 +94,4 @@ class MechanicForm extends Component{
     }
 }
 
-export default MechanicForm;
+export default Mechanicform;

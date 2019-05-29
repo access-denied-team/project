@@ -1,5 +1,10 @@
-import {NavLink } from "react-router-dom";
+
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+// import Userform from './Userform';
+// import Mechanicform from './Mechanicform';
 
 class SignupMain extends React.Component {
     constructor(props) {
@@ -13,16 +18,28 @@ class SignupMain extends React.Component {
           choice: event.target.value
         });
       }
-      handleSubmit(event) {
-        event.preventDefault();
-       var x= this.state.choice;
-        alert(`You chose the ${this.state.choice} `);
-      //  path="/SignupMain"
+      handleSubmit=(event)=> {
+      //  event.preventDefault();
+      
+      
+     
+      }
+      renderRedirect = () => {
+        var x= this.state.choice;
+       if (this.state.choice==='mechanist') {
+        // alert(`You chose the ${x} `);
+        return <Redirect to="/Mechanicform" />
+      
+      }else if(this.state.choice ==="user"){
+       
+        return <Redirect to="/Userform" />
+      }   
       }
 
     render() {
         return (
-          <form action="/" onSubmit={this.handleSubmit.bind(this)}>
+          <form  onSubmit={this.handleSubmit.bind(this)}>
+           { this.renderRedirect()}
             <p>user or mechanist:</p>
             
             <ul>
@@ -52,10 +69,10 @@ class SignupMain extends React.Component {
       
              
             </ul>
-            <NavLink to="/SignupMain">
+           
 
-            <button type="submit">Make your choice</button>
-            </NavLink>
+           
+           
           </form>
         );
       }

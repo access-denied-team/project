@@ -11,8 +11,10 @@ import Mapview from './components/Map'
 import './App.css';
 import Accept from './components/AcceptComponent.js';
 import Foo from './components/Rating.js';
-import UserForm from './components/UserForm';
-import MechanicForm from './components/MechanicForm';
+import Userform from './components/Userform';
+import Mechanicform from './components/Mechanicform';
+import Mechtasks from './components/Mechtasks';
+
 
 
 
@@ -43,6 +45,9 @@ class App extends React.Component {
          <Route exact path="/Login" component={Login} />
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/map" component = {Mapview}/>
+         <Route exact path="/Mechtasks" component = {Mechtasks}/>
+         <Route exact path="/Mechanicform" component = {Mechanicform}/>
+         <Route exact path="/Userform" component = {Userform}/>
        
        
      </Router>
