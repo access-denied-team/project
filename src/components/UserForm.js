@@ -7,11 +7,14 @@ class UserForm extends Component{
             username: '',
             password: '',
             phoneNumber: '',
+            image: null,
             imgUrl: '',
             role: 'user'
         };
         this.inputChange = this.inputChange.bind(this);
         this.submitEvent = this.submitEvent.bind(this);
+        this.selectedFile = this.selectedFile.bind(this);
+        this.uploadFile = this.uploadFile.bind(this);
     }
 
     inputChange(event){
@@ -30,6 +33,39 @@ class UserForm extends Component{
       event.preventDefault();
     }
 
+    selectedFile(event){
+      const image = event.target.files[0];
+      this.setState(() => ({ image }));
+  }
+
+  uploadFile(){
+    const { image } = this.state;
+    console.log(image.name);
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+uploadTask.on("state_changed",
+snapshot => {},
+error => {
+  // error function ....
+  console.log(error);
+},
+
+  () => {
+    // complete function ....
+    storage
+      .ref("images")
+      .child(image.name)
+      .getDownloadURL()
+      .then(imgUrl => {
+        setTimeout(() => {
+          this.setState({ imgUrl }, () =>
+            console.log(imgUrl)
+          );
+        }, 2000);
+      });
+  }
+);
+}
+
     render(){
         return(
             <div>
@@ -39,6 +75,8 @@ class UserForm extends Component{
                     <input type="password" name="password" value={this.state.password} onChange={this.inputChange} placeholder="Password"/><br/>
                     <input type ="number" name="phoneNumber" value={this.state.phoneNumber} onChange={this.inputChange} placeholder="Phone Number"/><br/>
                     <input type="text" name="imgUrl" value={this.state.imgUrl} onChange={this.inputChange} placeholder="Image Url"/><br/>
+                    <input type="file" onChange={this.selectedFile}/><br/>
+                <input onClick={this.uploadFile} value="upload" /><br/>
                     <button>Signup</button>
                 </form>
             </div>
