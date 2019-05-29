@@ -1,14 +1,9 @@
 import React from 'react';
-
 import Login from './components/login';
 import SignupMain from './components/signupMain';
-
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
-
 import Mapview from './components/Map'
-
 import Accept from './components/AcceptComponent.js';
 import Foo from './components/Rating.js';
 import UserForm from './components/UserForm';
@@ -22,7 +17,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+
       status: null,
+
       loginDb:[
         {
           "username":'Odayabueid',
@@ -60,8 +57,17 @@ class App extends React.Component {
       //    mechImg:"https://thumbs.dreamstime.com/z/mechanical-engineer-29186038.jpg"
       // }
     };
+
+    this.addTask.bind(this)
     
   }
+
+addTask(task){
+  this.setState({
+    tasks:[...this.state.tasks,task]
+  })
+}
+
 
 
   handleclick (){
@@ -76,45 +82,59 @@ class App extends React.Component {
 
   }
 
+update(){
+  alert('hello update')
+  this.setState({
+    status:"waiting"
+  },()=>console.log(this.state.status))
+}
+
+addUser(user){
+  this.setState({
+    loginDb:[...this.state.loginDb,user]
+  })
+}
+
+
     
+
 
 
   render() {
     return (
-                
-      // <div>
-      //      <Login/>
-      // </div>
-      
+      <div>
        <Router>
          
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
-        
-         <Route exact path="/MechanicForm" component={MechanicForm} />
-        <Route exact path="/Mechtasks" component={Mechtasks} />
 
+        
+         
+        
+
+
+         
+         <Route exact path="/Mechtasks" render={(props)=> <Mechtasks {...props} update={this.update.bind(this)}/>}/>
+
+
+        
+
+
+         <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
         
 
          <Route exact path="/SignupMain" component={SignupMain} />
-         {/* <Route exact path="/map" component = {Mapview}/> */}
-         <Route exact path="/UserForm" component={UserForm}/>
+         <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}
+    />}/>
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props} handleclick={this.handleclick.bind(this)} />}
+  render={(props) => <Mapview {...props}  addTask={this.addTask} handleclick={this.handleclick.bind(this)} />}
 />
      </Router>
-            
+     
+     </div>  
     );
   }
-
   }
-
-
-
-
-
-
-
 export default App;
