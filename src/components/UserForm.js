@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {storage} from "../firebase/index";
 
 class UserForm extends Component{
     constructor(props){
@@ -70,6 +71,14 @@ error => {
         return(
             <div>
               <h1>User:</h1>
+              <img
+              src={
+                this.state.imgUrl || "https://embodiedfacilitator.com/wp-content/uploads/2018/05/human-icon-png-1901.png"
+              }
+              alt="User Image"
+              height="100"
+              width="100"
+            />
                 <form onSubmit={this.submitEvent}>
                     <input type="text" name="username" value={this.state.username} onChange={this.inputChange} placeholder="Username"/><br/>
                     <input type="password" name="password" value={this.state.password} onChange={this.inputChange} placeholder="Password"/><br/>
