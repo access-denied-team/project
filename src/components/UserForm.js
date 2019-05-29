@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {Component} from 'react';
-<<<<<<< HEAD
-import {storage} from "../firebase/index"
-=======
 import {storage} from "../firebase/index";
->>>>>>> dedfa3cb9a7270a6a093cf0352f522e3a49533e3
 
-import {storage} from '../firebase/index'
+
 
 
 
