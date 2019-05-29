@@ -7,7 +7,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
 import './App.css';
-import Map from './components/Map'
+import Mapview from './components/Map'
 import './App.css';
 import Accept from './components/AcceptComponent.js';
 import Foo from './components/Rating.js';
@@ -59,19 +59,7 @@ class App extends React.Component {
     };
     
   }
-    render(){
-      return(
-        <div>
-          <Accept
-             mechinfo={this.state.mechinfo}
-          />
-          <Foo />
-           {/* <Map/> */}
-      <UserForm />
-      <MechanicForm/>
-        </div>
-        )
-    }
+    
 
 
   render() {
@@ -82,7 +70,6 @@ class App extends React.Component {
       // </div>
       
        <Router>
-       
          <Route exact path="/" component={Login} /> 
          <Route exact path="/Login" component={Login} />
         <Route exact path="/Map" component={Map} />
@@ -90,6 +77,7 @@ class App extends React.Component {
 
 
          <Route exact path="/SignupMain" component={SignupMain} />
+         <Route exact path="/map" component = {Mapview}/>
        
        
      </Router>
