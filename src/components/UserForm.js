@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from 'react';
-import {storage} from '../firebase/index'
+import React, {Component} from 'react';
+import {storage} from "../firebase/index";
 
 class UserForm extends React.Component{
     constructor(props){

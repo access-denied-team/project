@@ -2,7 +2,7 @@ import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
 import Button from 'react-bootstrap/Button';
-
+import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 
 
 export class Mapview extends React.Component{
@@ -61,7 +61,7 @@ export class Mapview extends React.Component{
           </InfoWindow>
         </CurrentLocation>
         
-        <Button variant="primary">Primary</Button>
+       <Link to="/UserForm"><Button variant="primary">{this.props.isAuthed.username}</Button></Link> 
         
         </div>
         
