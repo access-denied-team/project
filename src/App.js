@@ -89,6 +89,13 @@ update(){
   },()=>console.log(this.state.status))
 }
 
+complete(){
+  alert('hello completed')
+  this.setState({
+    status:"completed"
+  },()=>console.log(this.state.status))
+}
+
 addUser(user){
   this.setState({
     loginDb:[...this.state.loginDb,user]
@@ -114,7 +121,7 @@ addUser(user){
 
 
          
-         <Route exact path="/Mechtasks" render={(props)=> <Mechtasks {...props} update={this.update.bind(this)}/>}/>
+         <Route exact path="/Mechtasks" render={(props)=> <Mechtasks {...props} update={this.update.bind(this)} complete={this.complete.bind(this)}/>}/>
 
 
         

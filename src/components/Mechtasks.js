@@ -26,6 +26,7 @@ class Mechtasks extends React.Component{
 						</ul>
 						<button onClick={that.props.update}>Accept</button>
 						<button>Decline</button>
+						<button onClick={that.props.complete}>Complete</button>
 
 							</div>
 							
