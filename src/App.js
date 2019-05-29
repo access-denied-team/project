@@ -77,8 +77,9 @@ class App extends React.Component {
          <Route exact path="/Login" component={Login} />
          <Route exact path="/MechanicForm" component={MechanicForm} />
         <Route exact path="/Mechtasks" component={Mechtasks} />
-        
-              
+
+        <Route exact path="/UserForm" component={UserForm} />
+
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/map" component = {Mapview}/>
          <Route exact path="/UserForm" component={UserForm}/>
