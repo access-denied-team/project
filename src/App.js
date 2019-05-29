@@ -78,6 +78,7 @@ class App extends React.Component {
 
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/map" component = {Mapview}/>
+         <Route exact path="/UserForm" component={UserForm}/>
        
        
      </Router>

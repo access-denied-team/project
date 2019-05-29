@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {Component} from 'react';
 import { storage } from "../firebase/index.js";
 
