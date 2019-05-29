@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
+import {storage} from "../firebase/index"
+=======
 import {storage} from "../firebase/index";
+>>>>>>> dedfa3cb9a7270a6a093cf0352f522e3a49533e3
 
 class UserForm extends Component{
     constructor(props){

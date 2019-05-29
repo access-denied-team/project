@@ -1,8 +1,7 @@
 import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
-import  { Fragment } from "react";
-import { MDBBtn } from "mdbreact";
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -33,6 +32,11 @@ export class Mapview extends React.Component{
       }
     };
 
+      sendOrder(){
+        
+      }
+
+
     render()  {
         
         return(
@@ -56,7 +60,8 @@ export class Mapview extends React.Component{
           </InfoWindow>
         </CurrentLocation>
         
-    
+        <Button variant="primary">Primary</Button>
+        
         </div>
         
         
