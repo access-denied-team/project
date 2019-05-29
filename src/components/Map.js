@@ -1,7 +1,6 @@
 import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
-import Confirm from "./Confirm";
 import Button from 'react-bootstrap/Button';
 
 
