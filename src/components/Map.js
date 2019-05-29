@@ -3,6 +3,7 @@ import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
+import App from "../App.js"
 
 
 export class Mapview extends React.Component{
@@ -32,9 +33,6 @@ export class Mapview extends React.Component{
       }
     };
 
-      sendOrder(){
-        
-      }
 
 
     render()  {
@@ -56,12 +54,12 @@ export class Mapview extends React.Component{
             <div>
               <h4>{this.state.selectedPlace.name}</h4>
             </div>
-            
-          </InfoWindow>
+              
+       </InfoWindow>
         </CurrentLocation>
-        
-       <Link to="/UserForm"><Button variant="primary">{this.props.isAuthed.username}</Button></Link> 
-        
+         
+         <button onClick={this.props.handleclick}>Help</button>
+          
         </div>
         
         
@@ -77,3 +75,4 @@ export class Mapview extends React.Component{
 export default GoogleApiWrapper({
     apiKey: ("AIzaSyCSd2zDkggemBpMYEeEvEo_E4RlQDxd6Po")
   })(Mapview)
+  

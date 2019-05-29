@@ -22,6 +22,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      status: null,
       loginDb:[
         {
           "username":'Odayabueid',
@@ -63,6 +64,17 @@ class App extends React.Component {
   }
 
 
+  handleclick (){
+    //alert("hello")
+     alert("status is " +this.state.status)
+    this.setState({
+      status:"bending ..."
+
+    }
+    )
+
+
+  }
 
     
 
@@ -78,7 +90,7 @@ class App extends React.Component {
          
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
-         <Route exact path="/Login" component={Login} />
+        
          <Route exact path="/MechanicForm" component={MechanicForm} />
         <Route exact path="/Mechtasks" component={Mechtasks} />
 
@@ -90,7 +102,7 @@ class App extends React.Component {
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props} isAuthed={this.state.loginDb[0]} />}
+  render={(props) => <Mapview {...props} handleclick={this.handleclick.bind(this)} />}
 />
      </Router>
             
