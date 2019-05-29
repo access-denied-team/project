@@ -59,10 +59,16 @@ class App extends React.Component {
       //    mechImg:"https://thumbs.dreamstime.com/z/mechanical-engineer-29186038.jpg"
       // }
     };
+
+    this.addTask.bind(this)
     
   }
 
-
+addTask(task){
+  this.setState({
+    tasks:[...this.state.tasks,task]
+  })
+}
 
     
 
@@ -90,7 +96,7 @@ class App extends React.Component {
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props} isAuthed={this.state.loginDb[0]} />}
+  render={(props) => <Mapview {...props} addTask={this.addTask} />}
 />
      </Router>
             
