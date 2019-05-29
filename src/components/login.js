@@ -25,7 +25,12 @@ class Login extends React.Component {
       this.state = {
  logsuc:0,
  textFieldValue:"",
- textPassValue:""
+ textPassValue:"",
+       username:"",
+        phonenumber:"",
+        location:"",
+        imgUrl:""
+
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleTextFieldChange=this.handleTextFieldChange.bind(this)
@@ -50,6 +55,11 @@ class Login extends React.Component {
       if(this.props.loginDb[i].username === this.state.textFieldValue && this.props.loginDb[i].password===this.state.textPassValue){
          match =true;
          var role=this.props.loginDb[i].Role;
+         this.setState({
+           username:this.props.loginDb[i].username,
+           phonenumber:this.props.loginDb[i].phoneNum,
+           imgUrl:this.props.loginDb[i].imgUrl
+         })
       }
       }
     
@@ -74,11 +84,18 @@ class Login extends React.Component {
 
    renderRedirect = () => {
     if (this.state.logsuc===1) {
-      return <Redirect to="/Map" />
+      return <Redirect to={{
+        pathname:"/map",
+        state:{user:{
+          username:this.state.username,
+          phonenumber:this.state.phonenumber,
+          imgUrl:this.state.imgUrl
+        }}
+      }} />
     }else if(this.state.logsuc ===2){
       return <Redirect to = {{
         pathname:"/Mechtasks",
-        props:{tasks:this.props.tasks}
+        state:{tasks:this.props.tasks}
       }}/>
     }
   }

@@ -1,14 +1,9 @@
 import React from 'react';
-
 import Login from './components/login';
 import SignupMain from './components/signupMain';
-
-
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
-
 import Mapview from './components/Map'
-
 import Accept from './components/AcceptComponent.js';
 import Foo from './components/Rating.js';
 import UserForm from './components/UserForm';
@@ -70,6 +65,12 @@ addTask(task){
   })
 }
 
+addUser(user){
+  this.setState({
+    loginDb:[...this.state.loginDb,user]
+  })
+}
+
     
 
 
@@ -84,11 +85,11 @@ addTask(task){
          
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
-         <Route exact path="/MechanicForm" component={MechanicForm} />
+         <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
         <Route exact path="/Mechtasks" component={Mechtasks} />
          <Route exact path="/SignupMain" component={SignupMain} />
-         {/* <Route exact path="/map" component = {Mapview}/> */}
-         <Route exact path="/UserForm" component={UserForm}/>
+         <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}
+    />}/>
        
          <Route
   path='/map'

@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Redirect } from 'react-router-dom'
 
 
 class UserForm extends Component{
@@ -25,7 +26,8 @@ class UserForm extends Component{
             phoneNumber: '',
             image: null,
             imgUrl: '',
-            role: 'user'
+            role: 'user',
+            sub:0
         };
         this.inputChange = this.inputChange.bind(this);
         this.submitEvent = this.submitEvent.bind(this);
@@ -44,9 +46,20 @@ class UserForm extends Component{
     }
 
     submitEvent(event){
-      alert('Welcome ' + this.state.username);
-      // console.log('Worked')
-      event.preventDefault();
+      let user = {
+        "username":this.state.username,
+        "password":this.state.password,
+        "imgUrl":this.state.imgUrl,
+        "phoneNum":this.state.phoneNumber,
+        "Role":"user"
+      }
+      
+        this.props.addUser(user)
+        this.setState({
+          sub:1
+        })
+        event.preventDefault();
+        
     }
 
     selectedFile(event){
@@ -72,11 +85,7 @@ error => {
       .child(image.name)
       .getDownloadURL()
       .then(imgUrl => {
-        setTimeout(() => {
-          this.setState({ imgUrl }, () =>
-            console.log(imgUrl)
-          );
-        }, 2000);
+        this.setState({imgUrl})
       });
   }
 );
@@ -113,6 +122,11 @@ classes(theme){
     },
   }
 }
+renderRedirect = () => {
+  if (this.state.sub) {
+    return <Redirect to="/" />
+  }
+}
 
 
     render(){
@@ -131,6 +145,7 @@ classes(theme){
           
         </Typography>
         <form  onSubmit={this.submitEvent} className={this.classes.form} noValidate>
+        {this.renderRedirect()}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
              
@@ -140,6 +155,7 @@ classes(theme){
                 variant="outlined"
                 required
                 fullWidth
+                onChange={this.inputChange}
                 id="email"
                 label="Username"
                 name="username"
@@ -148,6 +164,7 @@ classes(theme){
             </Grid>
             <Grid item xs={12}>
               <TextField
+              onChange={this.inputChange}
                 variant="outlined"
                 required
                 fullWidth
@@ -161,6 +178,7 @@ classes(theme){
             
             <Grid item xs={12}>
               <TextField
+              onChange={this.inputChange}
                 variant="outlined"
                 required
                 fullWidth

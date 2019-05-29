@@ -15,6 +15,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Redirect } from 'react-router-dom'
 
 
 class MechanicForm extends Component{
@@ -25,10 +26,11 @@ class MechanicForm extends Component{
             password: '',
             phoneNumber: '',
             location: '',
-            profession: '',
             image: null,
             imgUrl: '',
-            role: 'mechanic'
+            role: 'mechanic',
+            sub:0
+            
         };
         this.inputChange = this.inputChange.bind(this);
         this.submitEvent = this.submitEvent.bind(this);
@@ -42,14 +44,35 @@ class MechanicForm extends Component{
         const name = target.name;
 
         this.setState({
-          [name]: value
+          [name]: value,
+          
         });
     }
 
     submitEvent(event){
-        alert('Welcome ' + this.state.username);
+      let user = {
+        "username":this.state.username,
+        "password":this.state.password,
+        "imgUrl":this.state.imgUrl,
+        "phoneNum":this.state.phoneNumber,
+        "Role":"mechanical"
+      }
+      
+        this.props.addUser(user)
+        this.setState({
+          sub:1
+        })
         event.preventDefault();
+        
+        
     }
+
+    renderRedirect = () => {
+      if (this.state.sub) {
+        return <Redirect to="/" />
+      }
+    }
+    
 
     selectedFile(event){
         const image = event.target.files[0];
@@ -67,20 +90,16 @@ class MechanicForm extends Component{
       console.log(error);
     },
 
-      () => {
-        // complete function ....
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then(imgUrl => {
-            setTimeout(() => {
-              this.setState({ imgUrl }, () =>
-                console.log(imgUrl)
-              );
-            }, 2000);
-          });
-      }
+    () => {
+      // complete function ....
+      storage
+        .ref("images")
+        .child(image.name)
+        .getDownloadURL()
+        .then(imgUrl => {
+          this.setState({imgUrl})
+        });
+    }
     );
   }
 
@@ -134,6 +153,7 @@ class MechanicForm extends Component{
             
           </Typography>
           <form  onSubmit={this.submitEvent} className={this.classes.form} noValidate>
+          {this.renderRedirect()}
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                
@@ -142,6 +162,8 @@ class MechanicForm extends Component{
               <TextField
                   variant="outlined"
                   required
+    
+                  onChange={this.inputChange}
                   fullWidth
                   id="email"
                   label="Username"
@@ -154,6 +176,7 @@ class MechanicForm extends Component{
                   variant="outlined"
                   required
                   fullWidth
+                  onChange={this.inputChange}
                   type="password"
                   id="password"
                   label="Password"
@@ -167,6 +190,7 @@ class MechanicForm extends Component{
                   variant="outlined"
                   required
                   fullWidth
+                  onChange={this.inputChange}
                   name="phoneNumber"
                   label="Phone"
                   type="text"
