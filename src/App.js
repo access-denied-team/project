@@ -6,7 +6,7 @@ import SignupMain from './components/signupMain';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
-import './App.css';
+
 import Mapview from './components/Map'
 
 import Accept from './components/AcceptComponent.js';
@@ -77,10 +77,12 @@ class App extends React.Component {
          <Route exact path="/Login" component={Login} />
          <Route exact path="/MechanicForm" component={MechanicForm} />
         <Route exact path="/Mechtasks" component={Mechtasks} />
+
         <Route exact path="/UserForm" component={UserForm} />
-              
+
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/map" component = {Mapview}/>
+         <Route exact path="/UserForm" component={UserForm}/>
        
        
      </Router>
