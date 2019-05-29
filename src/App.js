@@ -22,36 +22,36 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user:[
+      loginDb:[
         {
-          username:'Odayabueid',
-          password:"1111",
-          imgUrl:"",
-          phoneNum:"0780049003",
-          Role:"mechanical"
+          "username":'Odayabueid',
+          "password":"1111",
+          "imgUrl":"",
+          "phoneNum":"0780049003",
+          "Role":"mechanical"
         },
         {
-          username:'Amer',
-          password:"1111",
-          imgUrl:"",
-          phoneNum:"0798877643",
-          Role:"user"
-        },
-        {
-          username:'Yasser',
-          password:"1111",
-          imgUrl:"",
-          phoneNum:"0797634281",
-          Role:"user"
-        },
-        {
-          username:'Shareef',
-          password:"1111",
-          imgUrl:"",
-          phoneNum:"0797634281",
-          Role:"mechanical"
+          "username":'Amer',
+          "password":"1111",
+          "imgUrl":"",
+          "phoneNum":"0798877643",
+          "Role":"user"
         }
-      ] 
+         ],
+    tasks:[
+      {
+        username:"lolo",
+        phonenumber:"0893284",
+        location:"irbid",
+        imgUrl:"https://qph.fs.quoracdn.net/main-qimg-e25e3a9935aaef59599f171604318771"
+      },
+      {
+        username:"lama",
+        phonenumber:"0899933",
+        location:"Amman",
+        imgUrl:"https://i2.wp.com/viscawedding.com/wp-content/uploads/2019/01/Cute-Women-T-Shirt-Ideas-You-Can-Try-32.jpg?w=284&h=427&ssl=1"
+      }
+    ]
   
       // mechinfo:{ 
       //    userName:"oday ismail abueid",
@@ -61,6 +61,9 @@ class App extends React.Component {
     };
     
   }
+
+
+
     
 
 
@@ -73,7 +76,8 @@ class App extends React.Component {
       
        <Router>
          
-         <Route exact path="/" component={Login} /> 
+    <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
+    />}/> 
          <Route exact path="/Login" component={Login} />
          <Route exact path="/MechanicForm" component={MechanicForm} />
         <Route exact path="/Mechtasks" component={Mechtasks} />
@@ -81,10 +85,13 @@ class App extends React.Component {
         <Route exact path="/UserForm" component={UserForm} />
 
          <Route exact path="/SignupMain" component={SignupMain} />
-         <Route exact path="/map" component = {Mapview}/>
+         {/* <Route exact path="/map" component = {Mapview}/> */}
          <Route exact path="/UserForm" component={UserForm}/>
        
-       
+         <Route
+  path='/map'
+  render={(props) => <Mapview {...props} isAuthed={this.state.loginDb[0]} />}
+/>
      </Router>
             
     );
