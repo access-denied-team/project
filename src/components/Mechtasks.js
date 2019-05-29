@@ -62,8 +62,8 @@ class Mechtasks extends React.Component{
         <Button onClick={that.props.update} size="small" color="primary">
          Accept
         </Button>
-        <Button size="small" color="primary">
-          Decline
+        <Button onClick={that.props.complete} size="small" color="primary">
+          Completed
         </Button>
       </CardActions>
 	</Card>
