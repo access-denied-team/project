@@ -1,19 +1,7 @@
 import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
-import  { Fragment } from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBModalFooter,
-  MDBIcon,
-  MDBCardHeader,
-  MDBBtn,
-  MDBInput
-} from "mdbreact";
+import Confirm from "./Confirm"
 
 
 
@@ -44,68 +32,36 @@ export class Mapview extends React.Component{
       }
     };
 
+      sendOrder(){
+        
+      }
+
+
     render()  {
         
         return(
-          <MDBContainer>
-          <MDBRow>
-            <MDBCol md="6">
-              <MDBCard>
-                <MDBCardBody>
-                  <form>
-                    <p className="h4 text-center py-4">Sign up</p>
-                    <div className="grey-text">
-                      <MDBInput
-                        label="Your name"
-                        icon="user"
-                        group
-                        type="text"
-                        validate
-                        error="wrong"
-                        success="right"
-                      />
-                      <MDBInput
-                        label="Your email"
-                        icon="envelope"
-                        group
-                        type="email"
-                        validate
-                        error="wrong"
-                        success="right"
-                      />
-                      <MDBInput
-                        label="Confirm your email"
-                        icon="exclamation-triangle"
-                        group
-                        type="text"
-                        validate
-                        error="wrong"
-                        success="right"
-                      />
-                      <MDBInput
-                        label="Your password"
-                        icon="lock"
-                        group
-                        type="password"
-                        validate
-                      />
-                    </div>
-                    <div className="text-center py-4 mt-3">
-                      <MDBBtn color="cyan" type="submit">
-                        Register
-                      </MDBBtn>
-                    </div>
-                  </form>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+          <div>
             
+          <CurrentLocation
+          centerAroundCurrentLocation
+          google={this.props.google}
+        >
+          <Marker onClick={this.onMarkerClick} name={'current location'} />
           
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+            </div>
+            
+          </InfoWindow>
+        </CurrentLocation>
         
-    
-        
+          <button onClick="this.sendOrder.bind(this)">Confirm</button>
+        </div>
         
         
         
