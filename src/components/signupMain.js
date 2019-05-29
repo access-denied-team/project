@@ -1,6 +1,7 @@
-import {NavLink } from "react-router-dom";
+
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -8,6 +9,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+
 
 class SignupMain extends React.Component {
     constructor(props) {
@@ -21,12 +23,23 @@ class SignupMain extends React.Component {
           choice: event.target.value
         });
       }
-      handleSubmit(event) {
-        event.preventDefault();
+      handleSubmit=(event)=> {
+      //  event.preventDefault();
       
-        alert(`You chose the ${this.state.choice} `);
-      //  path="/SignupMain"
+      
+     
       }
+      // renderRedirect = () => {
+      //   var x= this.state.choice;
+      //  if (this.state.choice==='mechanist') {
+      //   // alert(`You chose the ${x} `);
+      //   return <Redirect to="/Mechanicform" />
+      
+      // }else if(this.state.choice ==="user"){
+       
+      //   return <Redirect to="/Userform" />
+      // }   
+      // }
       renderRedirect = () => {
         if (this.state.choice==="mechanist") {
           return <Redirect to="/MechanicForm" />
@@ -64,6 +77,7 @@ class SignupMain extends React.Component {
 
     render() {
         return (
+
           <div className={this.classes.root}>
              <form action="/" onSubmit={this.handleSubmit.bind(this)}>
              {this.renderRedirect()}
@@ -76,6 +90,7 @@ class SignupMain extends React.Component {
       </FormControl>
       </form>
     </div>
+
         );
       }
   

@@ -3,6 +3,9 @@ import SignupMain from './signupMain';
 import Mechtasks from './Mechtasks';
 import Map from './Map'
 import { Redirect } from 'react-router-dom'
+
+
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -17,6 +20,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 
 
 class Login extends React.Component {
@@ -204,5 +208,42 @@ class Login extends React.Component {
     }
   
   }
+  
+   
+//    }
 
-  export default Login
+//    else (alert("pls sign up"))
+
+//    }
+  
+//   renderRedirect = () => {
+//    if (this.state.logsuc===1) {
+//      return <Redirect to="/Map" />
+//    }else if(this.state.logsuc ===2){
+//      return <Redirect to = {{
+//        pathname:"/Mechtasks",
+//        state:{tasks:this.state.tasks}
+//      }}/>
+//    }
+//  }
+
+//    render() {
+//      return (
+
+
+
+//        <div>
+//              <form  onSubmit={this.handleSubmit}>
+//                {this.renderRedirect()}
+//              <input type="text"  placeholder=" username"/> <br />
+//              <input type="password"  placeholder="password"/> <br />
+//                <button>login</button> <br/>
+//              <br/> <a href="SignupMain">  Signup </a>
+//          </form>
+//        </div>
+//      )
+//    }
+
+//  }
+
+ export default Login

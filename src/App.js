@@ -18,7 +18,7 @@ class App extends React.Component {
     super(props);
     this.state = {
 
-      status:null,
+      status: null,
 
       loginDb:[
         {
@@ -69,6 +69,19 @@ addTask(task){
 }
 
 
+
+  handleclick (){
+    //alert("hello")
+     alert("status is " +this.state.status)
+    this.setState({
+      status:"bending ..."
+
+    }
+    )
+
+
+  }
+
 update(){
   alert('hello update')
   this.setState({
@@ -82,6 +95,7 @@ addUser(user){
   })
 }
 
+
     
 
 
@@ -94,10 +108,16 @@ addUser(user){
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
 
+        
+         
+        
+
+
          
          <Route exact path="/Mechtasks" render={(props)=> <Mechtasks {...props} update={this.update.bind(this)}/>}/>
 
-        <Route exact path="/UserForm" component={UserForm} />
+
+        
 
 
          <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
@@ -109,7 +129,7 @@ addUser(user){
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props} addTask={this.addTask} />}
+  render={(props) => <Mapview {...props}  addTask={this.addTask} handleclick={this.handleclick.bind(this)} />}
 />
      </Router>
      

@@ -18,7 +18,7 @@ import Container from '@material-ui/core/Container';
 import { Redirect } from 'react-router-dom'
 
 
-class MechanicForm extends Component{
+class Mechanicform extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -232,4 +232,4 @@ class MechanicForm extends Component{
       }
   }
 
-export default MechanicForm;
+export default Mechanicform;
