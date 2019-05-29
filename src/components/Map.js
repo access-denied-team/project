@@ -1,7 +1,8 @@
 import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
-import Confirm from "./Confirm"
+import Confirm from "./Confirm";
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -60,7 +61,7 @@ export class Mapview extends React.Component{
           </InfoWindow>
         </CurrentLocation>
         
-          <button onClick="this.sendOrder.bind(this)">Confirm</button>
+        <Button variant="primary">Primary</Button>
         </div>
         
         
