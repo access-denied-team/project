@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use(express.static(""))
+app.use(express.static("build"))
 
 app.get('/home', (req, res) => {
     const name = req.query.name || 'World';

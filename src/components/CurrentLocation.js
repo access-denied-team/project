@@ -7,7 +7,10 @@ const mapStyles = {
     width: '65%',
     height: '65%',
     marginLeft:"15%",
-    marginTop:"5%"
+    marginTop:"5%",
+    border:"1px solid white",
+    boxShadow: "5px 10px #888888"
+    
   }
 };
 
