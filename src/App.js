@@ -84,12 +84,8 @@ addTask(task){
          
     <Route exact path="/" render={(props)=> <Login loginDb={this.state.loginDb} tasks={this.state.tasks}  logsuc={0}
     />}/> 
-         <Route exact path="/Login" component={Login} />
          <Route exact path="/MechanicForm" component={MechanicForm} />
         <Route exact path="/Mechtasks" component={Mechtasks} />
-
-        <Route exact path="/UserForm" component={UserForm} />
-
          <Route exact path="/SignupMain" component={SignupMain} />
          {/* <Route exact path="/map" component = {Mapview}/> */}
          <Route exact path="/UserForm" component={UserForm}/>
@@ -104,11 +100,4 @@ addTask(task){
   }
 
   }
-
-
-
-
-
-
-
 export default App;
