@@ -20,8 +20,14 @@ class Rating extends Component {
     render() {
       // rating = 2;
       return (
-        <div>
+        <div  style={{
+          marginTop:"15%",
+          marginLeft:"35%"
+        }}>
+          <p 
+          style={{fontSize:"36px",marginLeft:"-6%"}}>Please rate the Mechanic</p>
           <StarRatings
+          
             rating={this.state.rating}
             starRatedColor="blue"
             changeRating={this.changeRating.bind(this)}

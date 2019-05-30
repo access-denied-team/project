@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const db = require()
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 app.use(express.static("build"))
 

@@ -17,6 +17,7 @@ import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 export class Mapview extends React.Component{
 
+
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
        super(props)
@@ -26,6 +27,10 @@ export class Mapview extends React.Component{
         selectedPlace:{},   //Shows the infoWindow to the selected place upon a marker
         show:false
       };
+    //   mobiscroll.settings = {
+    //     theme: 'ios',
+    //     lang: 'ar'
+    // }
     }
     componentDidMount(){
     //  console.log(this.props.location.state.user)
@@ -54,6 +59,7 @@ export class Mapview extends React.Component{
    
     time(){
       var that =this
+      alert("Sending...")
         setTimeout(()=>{
           that.setState({
             show:true
@@ -65,7 +71,6 @@ export class Mapview extends React.Component{
     
     
   
-
 
     render()  {
         
@@ -103,9 +108,8 @@ export class Mapview extends React.Component{
         </Fab>
          
          {this.state.show === true ? this.checkstatus() :null}
+        
          </div>
-
-
         </div>
         
         
