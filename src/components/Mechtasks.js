@@ -48,7 +48,6 @@ class Mechtasks extends React.Component{
           className={that.classes.media}
 		  image={item.imgUrl}
 		  style={{height:"140px",width:"150px"}}
-          title="Contemplative Reptile"
         />
 
 
