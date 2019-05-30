@@ -81,8 +81,7 @@ class SignupMain extends React.Component {
           <div className={this.classes.root}>
              <form action="/" onSubmit={this.handleSubmit.bind(this)}>
              {this.renderRedirect()}
-      <FormControl component="fieldset" className={this.classes.formControl}>
-        <FormLabel component="legend">Choose Your Profession</FormLabel>
+      <FormControl style={{width:"50px",height:"50px",marginLeft:"45%",marginTop:"15%" , textAlign:"center"}} component="fieldset" className={this.classes.formControl}>
         <RadioGroup>
           <FormControlLabel value="user" control={<Radio />} type="radio"  label="User"  checked={this.state.choice === "user"}     onChange={this.handleChange.bind(this)}/>
           <FormControlLabel value="mechanist" control={<Radio />} type="radio" label="Mechanic" checked={this.state.choice === "mechanist"} onChange={this.handleChange.bind(this)}/>

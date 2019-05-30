@@ -79,11 +79,14 @@ export class Mapview extends React.Component{
        </InfoWindow>
         </CurrentLocation>
 
+          
+
          <div>
 
          <button onClick={this.checkstatus.bind(this)}>Help</button>
          {this.state.show === true ? this.checkstatus() :null}
          </div>
+
 
         </div>
         
