@@ -17,8 +17,11 @@ class Mechtasks extends React.Component{
 	}
 
 
-	componentDidMount(){
-		console.log(this.props.location.state.user)
+	
+	  addMech(){
+		  let mech=this.props.location.state.user
+		  this.props.addMech(mech)
+		  this.props.update()
 	  }
 
 
@@ -53,13 +56,13 @@ class Mechtasks extends React.Component{
 		  {item.username}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {item.username} wants your help!
-			Please contact him/her soon +{item.phonenumber}
+            <strong style={{color:"black"}}>{item.username} wants your help!</strong> 
+		<strong style={{color:"black"}}>Please contact him/her soon {item.phonenumber}</strong>	
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button onClick={that.props.update} size="small" color="primary">
+        <Button onClick={that.addMech.bind(that)} size="small" color="primary">
          Accept
         </Button>
         <Button onClick={that.props.complete} size="small" color="primary">
