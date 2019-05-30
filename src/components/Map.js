@@ -4,10 +4,13 @@ import CurrentLocation from './CurrentLocation';
 import Rating from "../components/Rating"
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
-import App from "../App.js"
-import { Redirect } from 'react-router-dom'
+import App from "../App.js";
+import { Redirect } from 'react-router-dom';
+
+
 
 export class Mapview extends React.Component{
+
 
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
@@ -18,6 +21,10 @@ export class Mapview extends React.Component{
         selectedPlace:{},   //Shows the infoWindow to the selected place upon a marker
         show:false
       };
+    //   mobiscroll.settings = {
+    //     theme: 'ios',
+    //     lang: 'ar'
+    // }
     }
     componentDidMount(){
     //  console.log(this.props.location.state.user)
@@ -49,11 +56,13 @@ export class Mapview extends React.Component{
       
     };
    
-
-    
-    
+  //   showTopToast () {
+  //     mobiscroll.toast({
+  //         message: 'Request Sent',
+  //         display: 'top'
+  //     });
+  // }
   
-
 
     render()  {
         
@@ -82,12 +91,12 @@ export class Mapview extends React.Component{
           
 
          <div>
-
+         
          <button onClick={this.checkstatus.bind(this)}>Help</button>
+         
          {this.state.show === true ? this.checkstatus() :null}
+        
          </div>
-
-
         </div>
         
         
