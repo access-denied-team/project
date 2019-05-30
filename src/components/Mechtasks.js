@@ -39,6 +39,7 @@ class Mechtasks extends React.Component{
 	render(){
 		var that = this;
 		return (
+
 			<div style={{marginTop:"4%"}}>
 				{that.props.location.state.tasks.map(function(item){
 					return(<div><Card className={that.classes.card}>
@@ -49,6 +50,7 @@ class Mechtasks extends React.Component{
 		  style={{height:"140px",width:"150px"}}
           title="Contemplative Reptile"
         />
+
 
 		
         <CardContent>

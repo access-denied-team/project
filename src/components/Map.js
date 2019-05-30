@@ -1,10 +1,11 @@
 import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
+import Rating from "../components/Rating"
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 import App from "../App.js"
-
+import { Redirect } from 'react-router-dom'
 
 export class Mapview extends React.Component{
 
@@ -14,11 +15,12 @@ export class Mapview extends React.Component{
        this.state = {
         showingInfoWindow: false,  //Hides or the shows the infoWindow
         activeMarker: {},          //Shows the active marker upon click
-        selectedPlace:{}      //Shows the infoWindow to the selected place upon a marker
+        selectedPlace:{},   //Shows the infoWindow to the selected place upon a marker
+        show:false
       };
     }
     componentDidMount(){
-      console.log(this.props.location.state.user)
+    //  console.log(this.props.location.state.user)
     }
 
     onMarkerClick = (props, marker, e) =>
@@ -35,7 +37,22 @@ export class Mapview extends React.Component{
         });
       }
     };
+  checkstatus(){
 
+    if(true){
+      this.setState({show:true})
+      this.props.addTask(this.props.location.state.user)
+      // console.log(this.props.addTask)
+      console.log("added")
+      // alert('added')
+      return <Redirect to="/Rating" />}
+      
+    };
+   
+
+    
+    
+  
 
 
     render()  {
@@ -43,7 +60,7 @@ export class Mapview extends React.Component{
         return(
           <div>
             
-            
+           
           <CurrentLocation
           centerAroundCurrentLocation
           google={this.props.google}
@@ -62,9 +79,14 @@ export class Mapview extends React.Component{
        </InfoWindow>
         </CurrentLocation>
 
-         
-         <button onClick={this.props.handleclick}>Request Help</button>
           
+
+         <div>
+
+         <button onClick={this.checkstatus.bind(this)}>Help</button>
+         {this.state.show === true ? this.checkstatus() :null}
+         </div>
+
 
         </div>
         
