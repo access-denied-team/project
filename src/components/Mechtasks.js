@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
+import Container from '@material-ui/core/Container';
+
 
 class Mechtasks extends React.Component{
 	constructor(props){
@@ -16,7 +18,12 @@ class Mechtasks extends React.Component{
 		}
 	}
 
-
+     componentDidMount(){
+		 var that =this
+		 setInterval(()=>{
+			 console.log(that.props.status)
+		 },2000)
+	 }
 	
 	  addMech(){
 		  let mech=this.props.location.state.user
@@ -42,7 +49,9 @@ class Mechtasks extends React.Component{
 
 			<div style={{marginTop:"4%"}}>
 				{that.props.location.state.tasks.map(function(item){
-					return(<div><Card className={that.classes.card}>
+					return(<div>
+						<Container>
+						<Card className={that.classes.card}>
       <CardActionArea>
         <CardMedia
           className={that.classes.media}
@@ -71,7 +80,8 @@ class Mechtasks extends React.Component{
         </Button>
       </CardActions>
 	</Card>
-	<br></br>
+	</Container>
+	<br/>
 	</div>
 	)})}
 	</div>

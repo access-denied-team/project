@@ -7,15 +7,38 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography'
+
+import Typography from '@material-ui/core/Typography';
+import { Redirect } from 'react-router-dom'
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Container from '@material-ui/core/Container';
 
 class Accept extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
+			show:false
 		}
 	}
 	
+
+	checkstatus(){
+		if(this.state.show){
+		 return <Redirect to="/Rating" />}
+		  
+		};
+	   
+		time(){
+		  var that =this
+			setTimeout(()=>{
+			  that.setState({
+				show:true
+			  })
+			},0)
+		}
+
+
+
 	classes(theme){
 		return {
 			card: {
@@ -31,12 +54,19 @@ class Accept extends React.Component{
 		var that = this;
 		return (
 			<div>
-				<h1>Efz3li</h1>
+
+			
+				<h1 style={{"textalign": "center"}}>Efz3li</h1>
+				<Container>
+
+
 						<Card className={that.classes.card}>
       			<CardActionArea>
        	 <CardMedia
           className={that.classes.media}
-		  image={that.props.mechinfo.mechImg}
+
+		  image={that.props.mechinfo.imgUrl}
+
 		  style={{height:"140px",width:"150px"}}
           title="Contemplative Reptile"
         />
@@ -48,10 +78,26 @@ class Accept extends React.Component{
             <strong style={{color:"black"}}>{this.props.mechinfo.username} is on his/her way!</strong> 
 		<strong style={{color:"black"}}> You can reach him/her on {this.props.mechinfo.phonenumber}</strong>	
           </Typography>
+
+		 <div>
+      
+     
+    </div>
+        </CardContent>
+      </CardActionArea>
+	  <CardActions><Button onClick={that.time.bind(that)} size="small" color="primary">
+         Complete
+        </Button></CardActions>
+			</Card>
+			</Container>
+	<br></br>
+	{that.checkstatus()}
+=======
         </CardContent>
       </CardActionArea>
 			</Card>
 	<br></br>
+
 	</div>
 		)}		
 	}

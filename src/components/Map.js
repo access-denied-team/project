@@ -2,10 +2,18 @@ import React from 'react';
 import { Map,GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import CurrentLocation from './CurrentLocation';
 import Rating from "../components/Rating"
-import Button from 'react-bootstrap/Button';
+;
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
-import App from "../App.js";
-import { Redirect } from 'react-router-dom';
+
+import App from "../App.js"
+import { Redirect } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
+import NavigationIcon from '@material-ui/icons/Navigation';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
 
 
@@ -44,24 +52,28 @@ export class Mapview extends React.Component{
         });
       }
     };
+    
   checkstatus(){
-
-    if(true){
-      this.setState({show:true})
-      this.props.addTask(this.props.location.state.user)
-      // console.log(this.props.addTask)
-      console.log("added")
-      // alert('added')
-      return <Redirect to="/Rating" />}
+    if(this.state.show){
+     return <Redirect to="/Accept" />}
       
     };
    
-  //   showTopToast () {
-  //     mobiscroll.toast({
-  //         message: 'Request Sent',
-  //         display: 'top'
-  //     });
-  // }
+
+    time(){
+      var that =this
+      alert("Sending...")
+        setTimeout(()=>{
+          that.setState({
+            show:true
+          })
+        },4000)
+    }
+    
+
+    
+    
+
   
 
     render()  {
@@ -91,8 +103,15 @@ export class Mapview extends React.Component{
           
 
          <div>
-         
-         <button onClick={this.checkstatus.bind(this)}>Help</button>
+
+         <Fab onClick={this.time.bind(this)} style={{    position: "absolute",
+    
+    marginLeft: "45%",
+    marginTop:"40%"}} variant="extended" color="primary" aria-label="Add" >
+          <NavigationIcon  />
+          Efz3li
+        </Fab>
+
          
          {this.state.show === true ? this.checkstatus() :null}
         

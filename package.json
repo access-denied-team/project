@@ -11,6 +11,7 @@
     "express": "^4.17.1",
     "firebase": "^6.0.4",
     "google-maps-react": "^2.0.2",
+    "materialize-css": "^1.0.0-rc.2",
     "mdbreact": "^4.15.0",
     "mobiscroll-react": "^4.0.0",
     "nodemon": "^1.19.1",

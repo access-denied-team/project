@@ -6,7 +6,7 @@ const mapStyles = {
     position: 'absolute',
     width: '65%',
     height: '65%',
-    marginLeft:"15%",
+    marginLeft:"17%",
     marginTop:"5%",
     border:"1px solid white",
     boxShadow: "5px 10px #888888"
