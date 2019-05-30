@@ -4,11 +4,11 @@ import SignupMain from './components/signupMain';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
 import Mapview from './components/Map'
-import Accept from './components/AcceptComponent.js';
-import Foo from './components/Rating.js';
+import AcceptComponent from './components/AcceptComponent.js';
 import UserForm from './components/UserForm';
 import MechanicForm from './components/MechanicForm';
 import Rating from './components/Rating';
+import { Redirect } from 'react-router-dom'
 
 
 
@@ -58,13 +58,17 @@ class App extends React.Component {
       // }
     };
 
-    this.addTask.bind(this)
+    // this.addTask.bind(this)
     
   }
 
 addTask(task){
+  console.log(task)
   this.setState({
     tasks:[...this.state.tasks,task]
+    
+  }, function(){
+    console.log(this.state.tasks)
   })
 }
 
@@ -72,15 +76,21 @@ addTask(task){
 
   handleclick (){
     //alert("hello")
-     alert("status is " +this.state.status)
-    this.setState({
-      status:"bending ..."
+     //alert("status is " +this.state.status)
+    // this.setState({
+    //   status:"bending ..."
+     if(this.state.status===null){
+       return true;
+      // alert("waiting");
+     }
+      
+     
+     }
+    // }
+    // )
 
-    }
-    )
 
-
-  }
+  
 
 update(){
   alert('hello update')
@@ -121,15 +131,15 @@ addUser(user){
 
 
          <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
-        
-
+         <Route exact path="/Rating" component={Rating} />
+         <Route exact path="/AcceptComponent" component={AcceptComponent} />
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}
     />}/>
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props}  addTask={this.addTask} handleclick={this.handleclick.bind(this)} />}
+  render={(props) => <Mapview {...props}  addTask={this.addTask.bind(this)} Status={this.state.status} />}
 />
      </Router>
      

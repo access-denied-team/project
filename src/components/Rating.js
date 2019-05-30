@@ -3,7 +3,7 @@
 
 import StarRatings from 'react-star-ratings';
  
-class Foo extends Component {
+class Rating extends Component {
   constructor(props){
     super(props)
     this.state={
@@ -33,4 +33,4 @@ class Foo extends Component {
     }
 }
  
-export default Foo;
+export default Rating;
