@@ -1,7 +1,7 @@
  import App from '../App.js'
  import React, { Component }  from 'react';
 
-class AcceptComponent extends React.Component{
+class Accept extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -19,4 +19,4 @@ class AcceptComponent extends React.Component{
 			)
 	}
 }
-export default AcceptComponent;
+export default Accept;

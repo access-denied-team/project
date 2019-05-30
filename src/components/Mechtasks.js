@@ -16,7 +16,12 @@ class Mechtasks extends React.Component{
 		}
 	}
 
-
+     componentDidMount(){
+		 var that =this
+		 setInterval(()=>{
+			 console.log(that.props.status)
+		 },2000)
+	 }
 	
 	  addMech(){
 		  let mech=this.props.location.state.user

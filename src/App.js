@@ -4,7 +4,7 @@ import SignupMain from './components/signupMain';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Mechtasks from './components/Mechtasks';
 import Mapview from './components/Map'
-import AcceptComponent from './components/AcceptComponent.js';
+import Accept from './components/AcceptComponent.js';
 import UserForm from './components/UserForm';
 import MechanicForm from './components/MechanicForm';
 import Rating from './components/Rating';
@@ -151,7 +151,7 @@ this.setState({
 
          <Route exact path="/MechanicForm" render={(props)=> <MechanicForm addUser={this.addUser.bind(this)}/>}/>
          <Route exact path="/Rating" component={Rating} />
-         <Route exact path="/AcceptComponent" component={AcceptComponent} />
+         <Route exact path="/Accept" component={Accept} />
 
          <Route exact path="/SignupMain" component={SignupMain} />
          <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}
@@ -160,7 +160,7 @@ this.setState({
        
          <Route
   path='/map'
-  render={(props) => <Mapview {...props}  addTask={this.addTask.bind(this)} Status={this.state.status} />}
+  render={(props) => <Mapview {...props} status={this.state.status} addTask={this.addTask.bind(this)} Status={this.state.status} />}
 />
      </Router>
      
