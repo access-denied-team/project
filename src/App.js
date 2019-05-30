@@ -7,7 +7,9 @@ import Mapview from './components/Map'
 import Accept from './components/AcceptComponent';
 import UserForm from './components/UserForm';
 import MechanicForm from './components/MechanicForm';
+
 import Rating from './components/Rating';
+
 
 
 
@@ -45,7 +47,7 @@ class App extends React.Component {
         location:"Amman",
         imgUrl:"https://i2.wp.com/viscawedding.com/wp-content/uploads/2019/01/Cute-Women-T-Shirt-Ideas-You-Can-Try-32.jpg?w=284&h=427&ssl=1"
       },
-      
+
       {
         username: 'Oday',
         phonenumber: '03548094',
@@ -135,7 +137,9 @@ this.setState({
          <Route exact path="/UserForm" render={(props)=> <UserForm addUser={this.addUser.bind(this)}/>}/>
          <Route exact path="/Accept" render={(props)=> <Accept {...props} mechinfo={this.state.mechinfo}/>}/>
          <Route path='/map' render={(props) => <Mapview {...props}  addTask={this.addTask.bind(this)} Status={this.state.status} />}/>
+
          <Route exact path="/Rating" component={Rating} />
+
 
      </Router>
      </div>  

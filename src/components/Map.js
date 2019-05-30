@@ -4,6 +4,7 @@ import CurrentLocation from './CurrentLocation';
 import Rating from "../components/Rating"
 ;
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
+
 import App from "../App.js"
 import { Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
@@ -13,6 +14,7 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+
 
 
 export class Mapview extends React.Component{
@@ -57,6 +59,7 @@ export class Mapview extends React.Component{
       
     };
    
+
     time(){
       var that =this
       alert("Sending...")
@@ -70,6 +73,7 @@ export class Mapview extends React.Component{
 
     
     
+
   
 
     render()  {
@@ -99,6 +103,7 @@ export class Mapview extends React.Component{
           
 
          <div>
+
          <Fab onClick={this.time.bind(this)} style={{    position: "absolute",
     
     marginLeft: "45%",
@@ -106,6 +111,7 @@ export class Mapview extends React.Component{
           <NavigationIcon  />
           Efz3li
         </Fab>
+
          
          {this.state.show === true ? this.checkstatus() :null}
         
